@@ -1,11 +1,26 @@
 version: "3.3"
+
 services:
+
+ # MONGO 
+ mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+        - mongo_db:/data/db
+ 
+ # NODE
  node:
-  image: "node:17-alpine"
-  user: "node"
-  working_dir: /home/augusto/Documentos/Proyectos/Personal/Node/veterinaria
-  ports:
-      - "3000:3000"
-  volumes:
-      - ./:/home/augusto/Documentos/Proyectos/Personal/Node/veterinaria
-  command: sh -c "npm init -y && node index.js "
+    build: .
+    ports:
+        - 3000:3000
+    environment:
+        PORT: 3000
+        MONGODB_URI: mongodb://mongo_db:27017
+        DB_NAME: my_db
+    depends_on :
+        - mongo_db
+
+volumes:
+    mongo_db: {}
