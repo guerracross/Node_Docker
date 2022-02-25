@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+
+    # NODE
+    node:
+        container_name: node_app
+        restart: always
+        build: .
+        ports:
+            - 4000:3000
+        links:
+            - mongo
+        volumes:
+            - .:/usr/src/app
+
+    # MONGO 
+    mongo:
+        container_name: mymongodb
+        image: mongo:latest
+        restart: always
+        ports:
+            - 27017:27017
+        logging:
+            driver: none

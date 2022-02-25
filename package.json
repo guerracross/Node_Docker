@@ -1,21 +1,28 @@
 {
-  "name": "veterinaria",
+  "name": "Node_Docker",
   "version": "1.0.0",
-  "description": "prueba de proyecto node",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
-  "author": "Augusto Guerra",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guerracross/Node_Docker.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guerracross/Node_Docker/issues"
+  },
+  "homepage": "https://github.com/guerracross/Node_Docker#readme",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "http-errors": "^1.7.3",
-    "mongoose": "^5.7.13"
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.15"
   }
 }
