@@ -22,6 +22,6 @@ services:
         ports:
             - 27017:27017
         volumes:
-            -./db:/data/db
+            - ./db:/data/db
         logging:
             driver: none

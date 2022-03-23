@@ -6,8 +6,11 @@ require('./database');
 
 app.use(require('./routes/index.routes'))
 
-app.listen(3000);
-console.log('Server on port:', 3000)
+export const PUERTO_LOCAL = process.env['LOCAL_PORT'];
+app.set('PORT', process.env.PORT || PUERTO_LOCAL);
+
+app.listen(app.get('PORT'));
+console.log('Server on port:', app.get('PORT'))
 
 const frutas = ["banana", "banana", "pera", "banana"];
 
